@@ -1,0 +1,15 @@
+[Unit]
+Description=Embeddings API Server
+After=network.target
+
+[Service]
+Type=simple
+User=%u
+WorkingDirectory=%h/Development/embeddings-api
+Environment=PATH=%h/.local/venvs/embeddings/bin:%h/.local/bin:/usr/bin:/bin
+ExecStart=%h/.local/venvs/embeddings/bin/python embeddings_server.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target
